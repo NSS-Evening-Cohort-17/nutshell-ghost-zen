@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./Login.css"
 
 export const Register = () => {
 
-    const [registerUser, setRegisterUser] = useState({ firstName: "", lastName: "", email: "" })
+    const [registerUser, setRegisterUser] = useState({ firstName: "", lastName: "", email: "" , aboutMe:"" })
     const [conflictDialog, setConflictDialog] = useState(false)
 
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const handleInputChange = (event) => {
         const newUser = { ...registerUser }
@@ -37,6 +37,7 @@ export const Register = () => {
                         },
                         body: JSON.stringify({
                             email: registerUser.email,
+                            aboutMe: registerUser.aboutMe,
                             name: `${registerUser.firstName} ${registerUser.lastName}`
                         })
                     })
@@ -45,7 +46,8 @@ export const Register = () => {
                             if (createdUser.hasOwnProperty("id")) {
                                 // The user id is saved under the key nutshell_user in session Storage. Change below if needed!
                                 sessionStorage.setItem("nutshell_user", createdUser.id)
-                                history.push("/")
+                                console.log('setAuthUser',sessionStorage.getItem("nutshell_user"))
+                                navigate("/")
                             }
                         })
                 }
@@ -77,6 +79,10 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
                     <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="aboutMe"> About Me </label>
+                    <input type="text" name="aboutMe" id="aboutMe" className="form-control" placeholder="About me" required value={registerUser.aboutMe} onChange={handleInputChange} />
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Sign in </button>
