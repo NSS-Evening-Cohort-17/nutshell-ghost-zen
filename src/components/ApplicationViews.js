@@ -2,7 +2,7 @@ import React from "react"
 import { Route, Routes, Navigate } from "react-router-dom"
 import { Login } from './auth/Login'
 import { Register } from './auth/Register'
-import { TaskCard } from "./tasks/TaskCard.js"
+import { TaskList } from "./tasks/TaskList"
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = ({ children }) => {
@@ -25,12 +25,13 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
             </PrivateRoute>
         } />
 
-
         <Route exact path="/tasks" element={
-                    <PrivateRoute>
-                        <TaskCard />
-                    </PrivateRoute>
-                } />
+            <PrivateRoute>
+                <TaskList />
+            </PrivateRoute>
+        } />
+
+
       </Routes>
 
     </>

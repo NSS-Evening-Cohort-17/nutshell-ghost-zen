@@ -1,11 +1,32 @@
-import React from "react"
-import "./TaskCard.css"
+import React from 'react';
+import "./TaskCard.css";
+import { Link } from "react-router-dom";
 
-export const TaskCard = () => (
-    <section className="tasks">
-        <h3 className="task__title">(ex). Go To Grocery Stores</h3>
-        <p>Priority Status: </p>
-        <p className="task__descrip">notes of task</p>
-        <p>Due on: </p>
-    </section>
-)
+export const TaskCard = ({ task }) => {
+
+  return (
+    <div className="tasks__card">
+      <div className="task__card">
+        <h4><span className="tasks__title">
+          {task.ticket}
+        </span></h4>
+        <p>Due on: {task.dueDate}</p>
+        <p>Details: {task.detail}</p>
+        <p>Status: {task.status}</p>
+        <p>Priority Status: {task.priority}</p>
+
+
+
+        {/* <button type="button" onClick={() => handleDeleteAnimal(animal.id)}>Discharge</button>
+
+        <Link to={`/animals/${animal.id}`}>
+          <button>Details</button>
+        </Link>
+
+        <Link to={`/animals/${animal.id}/edit`}>
+          <button>Edit</button> */}
+        {/* </Link> */}
+      </div>
+    </div>
+  );
+}
