@@ -9,3 +9,9 @@ export const getAllMessages = () => {
     .then(res => res.json)
 
 }
+
+export const saveMessage = () => {
+    return fetch (`${remoteURL}/Messages`)
+    .then(res => res.json)
+
+}

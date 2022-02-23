@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
-import {getAllFriends} from '../../modules/FriendManager';
-import {saveMessage} from '../../modules/MessageManager';
+// import {getAllFriends} from '../../modules/FriendManager';
+import {saveMessage} from '../modules/MessageManager';
 
 
 export const MessageForm = () => {
@@ -30,14 +30,14 @@ export const MessageForm = () => {
         setMessage(newMessage)
     }
 
-    const getFriends = () => {
-        return getAllFriends().then(friends => {
-            setFriends(friends)
-        })
-    }
+    // const getFriends = () => {
+    //     return getAllFriends().then(friends => {
+    //         setFriends(friends)
+    //     })
+    // }
 
     useEffect(() => {
-        getFriends()
+        // getFriends()
     }, [])
 
     const handleClickSendMessage = (event) => {
@@ -51,18 +51,6 @@ export const MessageForm = () => {
         <h2 className="messageForm_title">New Message</h2>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="subject">Message Subject:</label>
-                <input type="text" id="subject" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Message Subject" value={message.subject} />
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="message_body">Message:</label>
-                <input type="text" id="body" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Content" value={message.message} />
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group">
                 <label htmlFor="recipient">Choose a Recipient </label>
                 <select value={message.toUserId} name="toUserId" id="toUserId" onChange={handleControlledInputChange} className="form-control" >
                     <option value="0">Select a Friend</option>
@@ -72,6 +60,18 @@ export const MessageForm = () => {
                         </option>
                     ))}
                 </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="subject">Message Subject:</label>
+                <input type="text" id="subject" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Message Subject" value={message.subject} />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="message_body">Message:</label>
+                <input type="text" id="body" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Content" value={message.message} />
             </div>
         </fieldset>
         <button className="btn btn-primary"
