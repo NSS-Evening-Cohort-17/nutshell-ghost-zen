@@ -2,7 +2,7 @@ import React from 'react';
 import "./TaskCard.css";
 import { Link } from "react-router-dom";
 
-export const TaskCard = ({ task }) => {
+export const TaskCard = ({ task, handleDeleteTask }) => {
 
   return (
     <div className="tasks__card">
@@ -15,17 +15,15 @@ export const TaskCard = ({ task }) => {
         <p>Status: {task.status}</p>
         <p>Priority Status: {task.priority}</p>
 
+        <button type="button" onClick={() => handleDeleteTask(task.id)}>delete task</button>
 
-
-        {/* <button type="button" onClick={() => handleDeleteAnimal(animal.id)}>Discharge</button>
-
-        <Link to={`/animals/${animal.id}`}>
+        {/* <Link to={`/animals/${animal.id}`}>
           <button>Details</button>
         </Link>
 
         <Link to={`/animals/${animal.id}/edit`}>
-          <button>Edit</button> */}
-        {/* </Link> */}
+          <button>Edit</button> 
+         </Link>  */}
       </div>
     </div>
   );
