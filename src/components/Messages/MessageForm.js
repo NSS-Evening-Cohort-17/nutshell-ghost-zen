@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 // import {getAllFriends} from '../../modules/FriendManager';
 import {saveMessage} from '../modules/MessageManager';
+import { getAllMessages } from '../modules/MessageManager';
 
 
 export const MessageForm = () => {

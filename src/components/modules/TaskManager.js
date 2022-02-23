@@ -1,5 +1,4 @@
-
-
+// holds all interaction with the api for tasks
 
 const remoteURL = "http://localhost:8088"
 
@@ -13,3 +12,9 @@ export const getAllTasks = () => {
   return fetch(`${remoteURL}/tasks`)
   .then(res => res.json())
 }
+
+export const deleteTask = (id) => {
+    return fetch(`${remoteURL}/tasks/${id}`, {
+      method: "DELETE"
+    }).then(result => result.json())
+  }
