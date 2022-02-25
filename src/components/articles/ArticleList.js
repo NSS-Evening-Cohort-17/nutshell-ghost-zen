@@ -1,6 +1,5 @@
 import react, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { useEffect } from 'react/cjs/react.production.min';
 import { ArticleCard } from './ArticleCard';
 import { getAllArticles, deleteArticle } from './../modules/ArticlesManager'
 
@@ -44,3 +43,4 @@ export const ArticleList = () => {
         </>
     )
 }
+
