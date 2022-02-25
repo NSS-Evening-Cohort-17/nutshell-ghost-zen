@@ -3,6 +3,8 @@ import { Route, Routes, Navigate } from "react-router-dom"
 import { Login } from './auth/Login'
 import { Register } from './auth/Register'
 import { MessageForm } from "./Messages/MessageForm"
+import { TaskList } from "./tasks/TaskList"
+import { ArticleList } from "./articles/ArticleList"
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = ({ children }) => {
@@ -19,6 +21,19 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
       <Routes>
         <Route exact path="/login" element={<Login setAuthUser={setAuthUser} />} />
         <Route exact path="/register" element={<Register />} />
+
+        {/* <Route  path="/" element={
+            <PrivateRoute>
+              <ArticleList />
+            </PrivateRoute>
+        } /> */}
+
+        <Route  path="/tasks" element={
+            <PrivateRoute>
+              <TaskList />
+            </PrivateRoute>
+        } />
+
         <Route  path="/messages" element={
             <PrivateRoute>
               <MessageForm />

@@ -1,0 +1,19 @@
+.page__title {
+    padding: .5em;
+}
+
+.tasks__title {
+    border-bottom: 1px solid black;
+}
+
+.task__card {
+    border: 1px solid grey;
+    border-radius: 1em;
+    padding: 1em;
+    background-color: silver;
+}
+
+.tasks__card {
+    padding: 2em;
+    margin-top: -2.5%;
+}
