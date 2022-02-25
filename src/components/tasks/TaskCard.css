@@ -17,3 +17,19 @@
     padding: 2em;
     margin-top: -2.5%;
 }
+
+fieldset button {
+    max-width: 9em;
+    padding: .5em;
+    margin: .3em auto;
+    background-color: cornflowerblue;
+    border: none;
+    color: cornsilk;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 2px;
+    width: 100%;
+    cursor: pointer;
+}

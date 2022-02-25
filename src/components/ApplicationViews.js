@@ -7,6 +7,7 @@ import { AddArticleForm } from './articles/ArticleForm'
 import { EditArticleForm } from './articles/EditArticleForm'
 import { MessageForm } from "./Messages/MessageForm"
 import { TaskList } from "./tasks/TaskList"
+import { TaskForm } from "./tasks/TaskForm"
 
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -35,6 +36,12 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
         <Route  path="/tasks" element={
             <PrivateRoute>
               <TaskList />
+            </PrivateRoute>
+        } />
+
+        <Route  path="/tasks/create" element={
+            <PrivateRoute>
+              <TaskForm />
             </PrivateRoute>
         } />
 
