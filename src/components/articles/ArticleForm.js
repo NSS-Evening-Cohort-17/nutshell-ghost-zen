@@ -2,12 +2,17 @@ import react, { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { addArticle } from './../modules/ArticlesManager'
 
+
 export const AddArticleForm = () => {
+    const sessionUser = JSON.parse(window.sessionStorage.getItem("nutshell_user"))
+    const sessionUserId = sessionUser.id
     const [article, setArticle] = useState({
-        url: "",
+        
         title: "",
         synopsis: "",
-        timestamp: (Date.now()).toLocaleString()
+        timestamp: new Date().toLocaleString(),
+        url: "",
+        userId: sessionUserId
     });
 
     const navigate = useNavigate();
@@ -35,19 +40,19 @@ export const AddArticleForm = () => {
             <fieldset>
                 <div>
                     <label htmlFor="title">Headline</label>
-                    <input type="text" id="title" onChange={handleInputChange} value={article.title} /> 
+                    <input type="text" id="title" onChange={handleInputChange} required value={article.title} /> 
                 </div>
             </fieldset>
             <fieldset>
                 <div>
                     <label htmlFor="synopsis">Synopsis</label>
-                    <input type="text" id="synopsis" onChange={handleInputChange} value={article.synopsis} /> 
+                    <input type="text" id="synopsis" onChange={handleInputChange} required value={article.synopsis} /> 
                 </div>
             </fieldset>
             <fieldset>
                 <div>
                     <label htmlFor="url">URL</label>
-                    <input type="url" id="url" onChange={handleInputChange} value={article.url} /> 
+                    <input type="url" id="url" onChange={handleInputChange} required value={article.url} /> 
                 </div>
             </fieldset>
 
