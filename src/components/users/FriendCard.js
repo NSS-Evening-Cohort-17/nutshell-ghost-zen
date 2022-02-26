@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { getFriendById } from '../modules/FriendManager';
-import './User.css'
 
 export default function FriendCard({ friends, handleUnfriend}) {
   const [userObj, setUserObj] = useState({ id: "", name: "", email: "" , aboutMe:"" })
