@@ -9,6 +9,7 @@ import { MessageForm } from "./Messages/MessageForm"
 import { TaskList } from "./tasks/TaskList"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskEditForm } from "./tasks/TaskEditForm"
+import { UserList } from "./users/UserList"
 
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -40,6 +41,7 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
             </PrivateRoute>
         } />
 
+
         <Route  path="/tasks/create" element={
             <PrivateRoute>
               <TaskForm />
@@ -51,6 +53,14 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
             <TaskEditForm />
           </PrivateRoute>
         } />
+
+
+        <Route  path="/friends" element={
+            <PrivateRoute>
+              <UserList />
+            </PrivateRoute>
+        } />
+
 
         <Route  path="/messages" element={
             <PrivateRoute>

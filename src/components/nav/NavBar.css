@@ -1,1 +1,9 @@
+.navbar {
+    background-color: #0D698B !important;
+}
 
+.nav-link {
+    color: white !important;
+    background-color: #0D698B !important;
+    border-right: 1px solid white;
+}

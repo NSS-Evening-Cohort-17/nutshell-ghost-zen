@@ -1,7 +1,10 @@
 import react, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getAllArticles, editArticle, getArticleById } from './../modules/ArticlesManager'
+import './ArticleForm.css'
+import './../Nutshell.css'
 
+//This is the form users use to edit previously saved articles. Coded by Brian. 
 
 export const EditArticleForm = () => {
     const [article, setArticle] = useState({
@@ -50,49 +53,40 @@ export const EditArticleForm = () => {
 
     return (
         <>
-        <h2 className="page__title">Update an article</h2>
         <form>
-            <fieldset>
-                <div>
-                    <label htmlFor="title">Headline</label>
-                    <input 
-                        type="text" 
-                        id="title" 
-                        onChange={handleFieldChange} 
-                        value={article.title} 
-                    /> 
+            <div  className="form__inputs">
+                <h2 className="page__title">Edit an article</h2>
+                <fieldset>
+                    <div  className="form__input">
+                        <label htmlFor="title" className="form__input__label" >Headline</label>
+                        <input type="text" className="form__input__field" id="title" onChange={handleFieldChange} required value={article.title} /> 
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div  className="form__input">
+                        <label htmlFor="synopsis" className="form__input__label" >Synopsis</label>
+                        <input type="text" className="form__input__field" id="synopsis" onChange={handleFieldChange} required value={article.synopsis} /> 
+                        
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div  className="form__input">
+                        <label htmlFor="url" className="form__input__label">URL</label>
+                        <input type="url" className="form__input__field" id="url" onChange={handleFieldChange} required value={article.url} /> 
+                    </div>
+                </fieldset>
+                <div className="form__input crud__btn">
+                    <button className="submit__btn"
+                        onClick={updateArticle}>
+                        Submit
+                    </button>
                 </div>
-            </fieldset>
-            <fieldset>
-                <div>
-                    <label htmlFor="synopsis">Synopsis</label>
-                    <input 
-                        type="text" 
-                        id="synopsis" 
-                        onChange={handleFieldChange} 
-                        value={article.synopsis} 
-                    /> 
-                </div>
-            </fieldset>
-            <fieldset>
-                <div>
-                    <label htmlFor="url">URL</label>
-                    <input 
-                        type="url" 
-                        id="url" 
-                        onChange={handleFieldChange} 
-                        value={article.url} 
-                    /> 
-                </div>
-            </fieldset>
-
-            <button 
-                className="crud__btn btn"
-                type="button" disabled={isLoading}
-                onClick={updateArticle}>
-                Submit
-            </button>
+                
+            </div>
         </form>
         </>
     );
 }
+
+
+
