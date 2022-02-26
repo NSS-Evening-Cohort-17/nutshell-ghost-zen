@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import './NavBar.css'
 
 export const NavBar = (props) => {
   return (
@@ -15,9 +16,6 @@ export const NavBar = (props) => {
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/messages">Messages</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/members">Members</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/tasks">Tasks</Link>
