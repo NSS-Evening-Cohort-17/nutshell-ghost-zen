@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import {useNavigate, useParams} from "react-router-dom";
 import {getTaskById, editTask, getAllTasks} from "./../modules/TaskManager"
 import "./TaskForm.css"
+import "./../Nutshell.css"
 
 export const TaskEditForm = () => {
   const [task, setTask] = useState({ ticket: "", detail: "" , dueDate: "", status: "", priority: ""});
@@ -50,74 +51,60 @@ export const TaskEditForm = () => {
 
   return (
     <>
-      <form>
+		
+    <h2 className="page__title">Edit Task</h2>
+<div className="taskForm">
+<form className="taskForm2">
+
+  <fieldset>
+    <div className="form__input">
+      <label className="form__input__label">Task Title:</label>
+      <input type="text" id="ticket" onChange={handleFieldChange} required autoFocus className="form__input__field" placeholder="task title" value={task.ticket} />
+    </div>
+  </fieldset>
         <fieldset>
-          <div className="formgrid">
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="ticket"
-              value={task.ticket}
-            />
-            <label htmlFor="name">Task Title</label>
-
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="detail"
-              value={task.detail}
-            />
-            <label htmlFor="detail">Task Details</label>
-          </div>
-
-          <fieldset>
-				<div className="dueDate">
-                    <label htmlFor="dueDate"> Due Date: </label>
-                    <div className="space"></div>
-				<input type="date" name="dueDate" id="dueDate" value={task.dueDate} onChange={handleFieldChange}>
-					</input>
-				</div>
-                <div className="space"></div>
-    		</fieldset>
-
-            <fieldset>
-			    <div className="form-group">
-					<label htmlFor="status">Status of Task: </label>
-					<select value={task.status} name="status" id="status" onChange={handleFieldChange} className="form-control" >
-						<option value="0">status options</option>
-							<option value="complete">complete</option>
-                            <option value="incomplete">incomplete</option>
-                            <option value="currently working on">currently working on</option>
-					</select>
-				</div>
-			</fieldset>
-
-            <fieldset>
-			    <div className="form-group">
-					<label htmlFor="priority">Priority Level: </label>
-					<select value={task.priority} name="priority" id="priority" onChange={handleFieldChange} className="form-control" >
-						<option value="0">priority options</option>
-							<option value="high priority">high priority</option>
-                            <option value="low priority">low priority</option>
-                            <option value="no priority, get done whenever">no priority, get done whenever</option>
-					</select>
-				</div>
-			</fieldset>
-
-          <div className="alignRight">
-            <button
-              type="button" disabled={isLoading}
-              onClick={updateExistingTask}
-              className="btn btn-primary"
-            >Update Task</button>
-
-          </div>
-        </fieldset>
-      </form>
+    <div className="form__input">
+      <label className="form__input__label">Task Details:</label>
+      <input type="text" id="detail" onChange={handleFieldChange} required autoFocus className="form__input__field"  placeholder="task details" value={task.detail} />
+    </div>
+  </fieldset>
+  <fieldset>
+    <div className="form__input">
+            <label className="form__input__label"> Due Date: </label>
+    <input type="date" name="dueDate" id="dueDate" value={task.dueDate} onChange={handleFieldChange} className="form__input__field" >
+      </input>
+    </div>
+    </fieldset>
+        <fieldset>
+      <div className="form__input">
+      <label className="form__input__label">Status of Task: </label>
+      <select value={task.status} name="status" id="status" onChange={handleFieldChange} className="form__input__field"  >
+        <option value="0">status options</option>
+          <option value="complete">complete</option>
+                        <option value="incomplete">incomplete</option>
+                        <option value="currently working on">currently working on</option>
+      </select>
+    </div>
+  </fieldset>
+        <fieldset>
+      <div className="form__input">
+      <label className="form__input__label">Priority Level: </label>
+      <select value={task.priority} name="priority" id="priority" onChange={handleFieldChange} className="form__input__field"  >
+        <option value="0">priority options</option>
+          <option value="high priority">high priority</option>
+          <option value="low priority">low priority</option>
+          <option value="no priority, get done whenever">no priority, get done whenever</option>
+      </select>
+    </div>
+  </fieldset>
+  <div className="form__input crud__btn">
+    <button className="submit__btn"
+      onClick={updateExistingTask}>
+      add task
+          </button>
+    </div>
+</form>
+</div>
     </>
   );
 }

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './TaskForm.css'
 import { addTask } from '../modules/TaskManager';
 import { getAllTasks } from '../modules/TaskManager';
+import './../Nutshell.css'
+import "./TaskForm.css"
 
 
 export const TaskForm = () => {
@@ -78,34 +79,34 @@ export const TaskForm = () => {
 
 	return (
         <>
-        <h2 className="taskForm__title">New Task</h2>
-		<form className="taskForm">
+		
+        <h2 className="page__title">New Task</h2>
+		<div className="taskForm">
+		<form className="taskForm2">
 
 			<fieldset>
-				<div className="form-group">
-					<label htmlFor="ticket">Task Title</label>
-					<input type="text" id="ticket" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="task title" value={task.ticket} />
+				<div className="form__input">
+					<label className="form__input__label">Task Title:</label>
+					<input type="text" id="ticket" onChange={handleControlledInputChange} required autoFocus className="form__input__field" placeholder="task title" value={task.ticket} />
 				</div>
 			</fieldset>
             <fieldset>
-				<div className="form-group">
-					<label htmlFor="detail">Task Details</label>
-					<input type="text" id="detail" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="task details" value={task.detail} />
+				<div className="form__input">
+					<label className="form__input__label">Task Details:</label>
+					<input type="text" id="detail" onChange={handleControlledInputChange} required autoFocus className="form__input__field"  placeholder="task details" value={task.detail} />
 				</div>
 			</fieldset>
 			<fieldset>
-				<div className="dueDate">
-                    <label htmlFor="dueDate"> Due Date: </label>
-                    <div className="space"></div>
-				<input type="date" name="dueDate" id="dueDate" value={task.dueDate} onChange={handleControlledInputChange}>
+				<div className="form__input">
+                <label className="form__input__label"> Due Date: </label>
+				<input type="date" name="dueDate" id="dueDate" value={task.dueDate} onChange={handleControlledInputChange} className="form__input__field" >
 					</input>
 				</div>
-                <div className="space"></div>
     		</fieldset>
             <fieldset>
-			    <div className="form-group">
-					<label htmlFor="status">Status of Task: </label>
-					<select value={task.status} name="status" id="status" onChange={handleControlledInputChange} className="form-control" >
+			    <div className="form__input">
+					<label className="form__input__label">Status of Task: </label>
+					<select value={task.status} name="status" id="status" onChange={handleControlledInputChange} className="form__input__field"  >
 						<option value="0">status options</option>
 							<option value="complete">complete</option>
                             <option value="incomplete">incomplete</option>
@@ -114,9 +115,9 @@ export const TaskForm = () => {
 				</div>
 			</fieldset>
             <fieldset>
-			    <div className="form-group">
-					<label htmlFor="priority">Priority Level: </label>
-					<select value={task.priority} name="priority" id="priority" onChange={handleControlledInputChange} className="form-control" >
+			    <div className="form__input">
+					<label className="form__input__label">Priority Level: </label>
+					<select value={task.priority} name="priority" id="priority" onChange={handleControlledInputChange} className="form__input__field"  >
 						<option value="0">priority options</option>
 							<option value="high priority">high priority</option>
                             <option value="low priority">low priority</option>
@@ -124,12 +125,14 @@ export const TaskForm = () => {
 					</select>
 				</div>
 			</fieldset>
-
-			<button className="btn btn-primary"
-				onClick={handleClickSaveTask}>
-				add task
-          </button>
+			<div className="form__input crud__btn">
+				<button className="submit__btn"
+					onClick={handleClickSaveTask}>
+					add task
+          		</button>
+		  	</div>
 		</form>
+		</div>
         </>
 	)
 };
