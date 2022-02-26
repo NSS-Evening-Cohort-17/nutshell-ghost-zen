@@ -1,5 +1,4 @@
 import React from 'react';
-import './User.css'
 
 export default function UserCard({ user, handleFriend}) {
   
