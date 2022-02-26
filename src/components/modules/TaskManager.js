@@ -28,3 +28,13 @@ export const deleteTask = (id) => {
         body: JSON.stringify(newTask)
     }).then(response => response.json())
 }
+
+export const updateTask = (editedTask) => {
+  return fetch(`${remoteURL}/tasks/${editedTask.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedTask)
+  }).then(data => data.json());
+}

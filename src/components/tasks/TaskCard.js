@@ -17,6 +17,10 @@ export const TaskCard = ({ task, handleDeleteTask }) => {
         <p>Status: {task.status}</p>
         <p>Priority Status: {task.priority}</p>
 
+        <Link to={`/tasks/${task.id}/edit`}>
+          <button>edit task</button>
+        </Link>
+
         <button type="button" onClick={() => handleDeleteTask(task.id)}>delete task</button>
 
         {/* <Link to={`/animals/${animal.id}`}>
