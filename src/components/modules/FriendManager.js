@@ -16,7 +16,7 @@ export const getUsersById = (userId) => {
   }
 
   export const getAllFriends = (userId) => {
-    return fetch(`${remoteURL}/friends?userId=${userId}`)
+    return fetch(`${remoteURL}/friends?currentUserId=${userId}`)
     .then(res => res.json())
   }
 //return fetch(`${remoteURL}/friends?id=${Id}`, {
