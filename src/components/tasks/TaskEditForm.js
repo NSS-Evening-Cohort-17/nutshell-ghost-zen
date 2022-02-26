@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from "react"
 import {useNavigate, useParams} from "react-router-dom";
+import {getTaskById, editTask, getAllTasks} from "./../modules/TaskManager"
 import "./TaskForm.css"
-import { updateTask } from "../modules/TaskManager";
-import { getTaskById } from "../modules/TaskManager";
-
 
 export const TaskEditForm = () => {
-	const [tasks, setTasks] = useState([]);
-    const [task, setTask] = useState({ ticket: "", detail: "", dueDate: "" , status: "", priority: "" });
-    const [isLoading, setIsLoading] = useState(false);
+  const [task, setTask] = useState({ ticket: "", detail: "" , dueDate: "", status: "", priority: ""});
+  const [isLoading, setIsLoading] = useState(false);
 
-    const {taskId} = useParams();
-    const navigate = useNavigate();
-    // const locationId = animal.locationId
+  const {taskId} = useParams();
+  const navigate = useNavigate();
 
-    const handleFieldChange = evt => {
-        const stateToChange = { ...task };
-        stateToChange[evt.target.id] = evt.target.value;
-        setTask(stateToChange);
+  const handleFieldChange = evt => {
+    const stateToChange = { ...task };
+    stateToChange[evt.target.id] = evt.target.value;
+    setTask(stateToChange);
+  };
 
-    };
-
-    const updateExistingTask = evt => {
-        evt.preventDefault()
-        setIsLoading(true);
+  const updateExistingTask = evt => {
+    evt.preventDefault()
+    setIsLoading(true);
 
     // This is an edit, so we need the id
     const editedTask = {
+      id: taskId,
       ticket: task.ticket,
       detail: task.detail,
       dueDate: task.dueDate,
@@ -34,10 +30,15 @@ export const TaskEditForm = () => {
       priority: task.priority
     };
 
-  updateTask(editedTask)
+  editTask(editedTask)
     .then(() => navigate("/tasks")
     )
   }
+
+  useEffect(() => {
+    getAllTasks()
+        .then(setTask)
+}, []);
 
   useEffect(() => {
     getTaskById(taskId)

@@ -27,7 +27,7 @@ export const TaskForm = () => {
 
 	const navigate = useNavigate();
 
-	//when a field changes, update state. The return will re-render and display based on the values in state
+	//when a fiel changes, update state. The return will re-render and display based on the values in state
 	// NOTE! What's happening in this function can be very difficult to grasp. Read it over many times and ask a lot questions about it.
 	//Controlled component
 
