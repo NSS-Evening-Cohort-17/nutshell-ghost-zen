@@ -71,8 +71,8 @@ export const MessageForm = () => {
         </fieldset>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="message_body">Message:</label>
-                <input type="text" id="body" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Content" value={message.message} />
+                <label htmlFor="body">Message:</label>
+                <input type="text" id="message" onChange={handleControlledInputChange} autoFocus className="form-control" placeholder="Message Content" value={message.message} />
             </div>
         </fieldset>
         <button className="btn btn-primary"
