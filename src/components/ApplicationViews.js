@@ -10,6 +10,7 @@ import { TaskList } from "./tasks/TaskList"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { UserList } from "./users/UserList"
+import { EventList } from "./events/EventList"
 
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -78,6 +79,13 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
               <EditArticleForm />
           </PrivateRoute> 
         } />
+
+
+        <Route  path="/events" element={
+            <PrivateRoute>
+                <EventList />
+              </PrivateRoute>
+                } />
       </Routes>
     </>
   )
