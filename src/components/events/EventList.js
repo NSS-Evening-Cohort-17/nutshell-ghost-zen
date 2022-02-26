@@ -28,7 +28,7 @@ export const EventList = () => {
 
   return (
     <>
-    <h3 className="page__title">Tasks</h3>
+    <h3 className="page__title">Events</h3>
 
     <section className="section-content">
         <div className="big__btns">
