@@ -1,35 +1,10 @@
-.page__title {
-    padding: .5em;
-}
-
-.tasks__title {
-    border-bottom: 1px solid black;
+hr {
+    background-color: #0D698B;
 }
 
 .task__card {
-    border: 1px solid grey;
-    border-radius: 1em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 1em;
-    background-color: silver;
-}
-
-.tasks__card {
-    padding: 2em;
-    margin-top: -2.5%;
-}
-
-fieldset button {
-    max-width: 9em;
-    padding: .5em;
-    margin: .3em auto;
-    background-color: cornflowerblue;
-    border: none;
-    color: cornsilk;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    border-radius: 2px;
-    width: 100%;
-    cursor: pointer;
 }
