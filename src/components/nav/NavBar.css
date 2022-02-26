@@ -5,5 +5,18 @@
 .nav-link {
     color: white !important;
     background-color: #0D698B !important;
-    border-right: 1px solid white;
+    border-left: 1px solid white;
+    border-radius: none;
+    height: 50px;
+    padding-top: 12.5px;
+}
+
+.nav__logo {
+    height: 40px;
+    margin-left: 50px;
+    background-color: transparent;
+}
+
+.test {
+    background-color: #0D698B;
 }

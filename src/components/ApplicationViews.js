@@ -7,6 +7,7 @@ import { AddArticleForm } from './articles/ArticleForm'
 import { EditArticleForm } from './articles/EditArticleForm'
 import { MessageForm } from "./Messages/MessageForm"
 import { TaskList } from "./tasks/TaskList"
+import { Home } from './Home'
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { UserList } from "./users/UserList"
@@ -27,13 +28,28 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
       <Routes>
         <Route exact path="/login" element={<Login setAuthUser={setAuthUser} />} />
         <Route exact path="/register" element={<Register />} />
-          
+        
         <Route exact path="/" element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
+        } />
+
+        <Route exact path="/articles" element={
             <PrivateRoute>
               <ArticleList />
             </PrivateRoute>
           } />
-
+        <Route path="/addArticle" element={
+            <PrivateRoute>
+              <AddArticleForm /> 
+            </PrivateRoute>
+        } />
+        <Route path="/:articleId/edit" element={
+          <PrivateRoute>
+              <EditArticleForm />
+          </PrivateRoute> 
+        } />
 
         <Route  path="/tasks" element={
             <PrivateRoute>
@@ -68,16 +84,7 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
 
             </PrivateRoute>
         } />
-        <Route path="/addArticle" element={
-            <PrivateRoute>
-              <AddArticleForm /> 
-            </PrivateRoute>
-        } />
-        <Route path="/:articleId/edit" element={
-          <PrivateRoute>
-              <EditArticleForm />
-          </PrivateRoute> 
-        } />
+
       </Routes>
     </>
   )
