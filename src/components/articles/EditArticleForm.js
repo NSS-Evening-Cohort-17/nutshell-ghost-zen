@@ -33,7 +33,7 @@ export const EditArticleForm = () => {
             url: article.url
         };
     editArticle(editedArticle)
-        .then(() => navigate("/")
+        .then(() => navigate("/articles")
         )
     }
 
@@ -48,7 +48,7 @@ export const EditArticleForm = () => {
                 setArticle(article);
                 setIsLoading(false);
             });
-    },  []);
+    }, [articleId]);
 
 
     return (
