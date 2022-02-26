@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
-// import {getAllFriends} from '../../modules/FriendManager';
+import {getAllFriends} from '../modules/FriendManager';
 import {saveMessage} from '../modules/MessageManager';
 import { getAllMessages } from '../modules/MessageManager';
 
@@ -31,14 +31,14 @@ export const MessageForm = () => {
         setMessage(newMessage)
     }
 
-    // const getFriends = () => {
-    //     return getAllFriends().then(friends => {
-    //         setFriends(friends)
-    //     })
-    // }
+    const getFriends = () => {
+        return getAllFriends(sessionUser.id).then(friends => {
+            setFriends(friends)
+        })
+    }
 
     useEffect(() => {
-        // getFriends()
+        getFriends()
     }, [])
 
     const handleClickSendMessage = (event) => {
@@ -57,7 +57,7 @@ export const MessageForm = () => {
                     <option value="0">Select a Friend</option>
                     {friends.map(l => (
                         <option key={l.id} value={l.id}>
-                            {l.name}
+                            {l.user.name}
                         </option>
                     ))}
                 </select>

@@ -18,3 +18,23 @@ export const deleteTask = (id) => {
       method: "DELETE"
     }).then(result => result.json())
   }
+
+  export const addTask = (newTask) => {
+    return fetch(`${remoteURL}/tasks`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newTask)
+    }).then(response => response.json())
+}
+
+export const editTask = (editedTask) => {
+  return fetch(`${remoteURL}/tasks/${editedTask.id}`, {
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedTask)
+  }).then(response => response.json())
+}

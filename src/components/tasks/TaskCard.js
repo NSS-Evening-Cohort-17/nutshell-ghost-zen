@@ -1,10 +1,12 @@
 // TASKCARD
 
 import React from 'react';
-import "./TaskCard.css";
-import { Link } from "react-router-dom";
+import './../Nutshell.css'
+import "./TaskCard.css"
+import { useNavigate } from "react-router-dom";
 
 export const TaskCard = ({ task, handleDeleteTask }) => {
+  const navigate = useNavigate()
 
   return (
     <div className="tasks__card">
@@ -17,16 +19,16 @@ export const TaskCard = ({ task, handleDeleteTask }) => {
         <p>Status: {task.status}</p>
         <p>Priority Status: {task.priority}</p>
 
-        <button type="button" onClick={() => handleDeleteTask(task.id)}>delete task</button>
 
-        {/* <Link to={`/animals/${animal.id}`}>
-          <button>Details</button>
-        </Link>
+        <div className="crud__btns">
+            <button className="crud__btn btn" type="button" onClick={() => handleDeleteTask(task.id)} id="delete__btn">delete</button>
 
-        <Link to={`/animals/${animal.id}/edit`}>
-          <button>Edit</button> 
-         </Link>  */}
+            <button className="crud__btn btn" id="edit__btn" onClick={() => {navigate('/tasks/:taskId/edit')}}>edit</button>
+        </div>
+
       </div>
+
     </div>
+  
   );
 }
