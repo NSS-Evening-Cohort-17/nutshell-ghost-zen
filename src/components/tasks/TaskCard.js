@@ -23,7 +23,7 @@ export const TaskCard = ({ task, handleDeleteTask }) => {
         <div className="crud__btns">
             <button className="crud__btn btn" type="button" onClick={() => handleDeleteTask(task.id)} id="delete__btn">delete</button>
 
-            <button className="crud__btn btn" id="edit__btn" onClick={() => {navigate('/tasks/:taskId/edit')}}>edit</button>
+            <button className="crud__btn btn" id="edit__btn" onClick={() => {navigate(`/tasks/${task.id}/edit`)}}>edit</button>
         </div>
 
         <hr></hr>

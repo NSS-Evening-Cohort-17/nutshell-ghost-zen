@@ -32,7 +32,7 @@ export const EventList = () => {
 
     <section className="section-content">
         <div className="big__btns">
-            <button type="button" className="big__btn btn" id="big__btn" onClick={() => {navigate("/evnts/create")}} >Add an Event</button>
+            <button type="button" className="big__btn btn" id="big__btn" onClick={() => {navigate("/events/create")}} >Add an Event</button>
         </div>
         </section>
 
