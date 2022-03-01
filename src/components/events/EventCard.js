@@ -8,6 +8,13 @@ import { useNavigate } from "react-router-dom";
 export const EventCard = ({ event, handleDeleteEvent }) => {
   const navigate = useNavigate()
 
+  const sessionUser = JSON.parse(window.sessionStorage.getItem("nutshell_user"))
+  const sessionUserId = sessionUser.id
+
+
+
+
+
   return (
     <div className="events__card">
       <div className="event__card">
@@ -17,7 +24,7 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
         <p>Happening On: {event.onDate} at {event.time}</p>
         <p>Details: {event.detail}</p>
         <p>Location: {event.location}</p>
-        <p>Hosted by: {event.userId?.name}</p>
+        <p>Hosted by: {event.user.name}</p>
 
 
         <div className="crud__btns">

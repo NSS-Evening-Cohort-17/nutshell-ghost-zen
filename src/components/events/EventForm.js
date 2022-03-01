@@ -1,6 +1,6 @@
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
-import { addEvent } from './../modules/EventManager'
+import { addEvent, getAllEvents, getEventById } from './../modules/EventManager'
 // import './EventForm.css'
 import './../Nutshell.css'
 
@@ -36,6 +36,16 @@ export const AddEventForm = () => {
                 .then(() => navigate("/events"))
         }
     }
+
+    useEffect(() => {
+        getAllEvents()
+        .then(event => {
+            setEvent(event)
+            // console.log("events")
+         })
+    })
+
+    
 
     return (
         <form>
