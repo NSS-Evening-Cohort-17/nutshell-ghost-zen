@@ -59,7 +59,7 @@ import React, { useState } from "react"
                                 onChange={handleInputChange} />
                         </fieldset>
                         <fieldset>
-                            <button type="submit">
+                            <button type="submit" className="main__submit__btn">
                                 Sign in
                             </button>
                         </fieldset>

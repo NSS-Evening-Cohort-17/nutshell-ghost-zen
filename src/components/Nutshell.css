@@ -14,15 +14,31 @@ h5 {
   color: #0D698B;
 }
 
+.site__title {
+  color: #0D698B;
+  margin-top: 10%;
+  text-align: center;
+  
+}
+
 .page__title {
   text-align: center;
   color: #0D698B
 }
 
-/* LINKS ********** */
-a {
-  color: #0D698B !important;
+/* LOGOS ********** */
+.site__logo {
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
 }
+
+/* LINKS ********** */
+/* a {
+  color: #0D698B !important;
+} */
 
 a:visited {
   color: #050533;

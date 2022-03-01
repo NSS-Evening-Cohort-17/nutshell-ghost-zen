@@ -33,7 +33,7 @@ export const AddArticleForm = () => {
             window.alert('All fields must be filled in')
         } else {
             addArticle(article)
-                .then(() => navigate("/"))
+                .then(() => navigate("/articles"))
         }
     }
 
