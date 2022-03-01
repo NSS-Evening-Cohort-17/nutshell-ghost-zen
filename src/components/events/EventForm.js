@@ -4,7 +4,6 @@ import { addEvent } from './../modules/EventManager'
 // import './EventForm.css'
 import './../Nutshell.css'
 
-//This is the form users use to add new articles. Coded by Brian. 
 
 export const AddEventForm = () => {
     const sessionUser = JSON.parse(window.sessionStorage.getItem("nutshell_user"))

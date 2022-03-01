@@ -23,7 +23,7 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
         <div className="crud__btns">
             <button className="crud__btn btn" type="button" onClick={() => handleDeleteEvent(event.id)} id="delete__btn">delete</button>
 
-            <button className="crud__btn btn" id="edit__btn" onClick={() => {navigate('/events/:eventId/edit')}}>edit</button>
+            <button className="crud__btn btn" id="edit__btn" onClick={() => {navigate(`/events/${event.id}/edit`)}}>edit</button>
         </div>
 
         <hr></hr>
