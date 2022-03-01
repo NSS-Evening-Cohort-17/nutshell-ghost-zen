@@ -15,7 +15,7 @@ export const ArticleCard = ({ article, handleDeleteArticle, handleEditArticle })
         <div className="article__cards">
             <div className="article__card">
                 <Link to={article.url}>
-                <h4 className="article__title"> {article.title}</h4>
+                <h4 className="article__title" target="_blank"> {article.title}</h4>
                 </Link>
                     <p><em>Posted on {article.timestamp}</em></p>
                     <p><strong>Synopsis</strong> {article.synopsis}</p>
