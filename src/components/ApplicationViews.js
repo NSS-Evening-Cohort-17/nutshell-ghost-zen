@@ -11,6 +11,10 @@ import { Home } from './Home'
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskEditForm } from "./tasks/TaskEditForm"
 import { UserList } from "./users/UserList"
+import { EventList } from "./events/EventList"
+import { AddEventForm } from "./events/EventForm"
+import { EventEditForm } from "./events/EventEditForm"
+
 
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -84,7 +88,38 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
 
             </PrivateRoute>
         } />
+          
+        <Route path="/addArticle" element={
+            <PrivateRoute>
+              <AddArticleForm /> 
+            </PrivateRoute>
+        } />
+        <Route path="/:articleId/edit" element={
+          <PrivateRoute>
+              <EditArticleForm />
+          </PrivateRoute> 
+        } />
 
+
+        <Route  path="/events" element={
+            <PrivateRoute>
+                <EventList />
+              </PrivateRoute>
+        } />
+
+          <Route path="/events/create" element={
+              <PrivateRoute>
+                  <AddEventForm /> 
+              </PrivateRoute>
+        } />
+
+          <Route path="/events/:eventId/edit" element={
+              <PrivateRoute>
+                  <EventEditForm />
+              </PrivateRoute> 
+          } />
+
+        
       </Routes>
     </>
   )
