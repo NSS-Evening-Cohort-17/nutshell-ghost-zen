@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { addFriend, deleteFriend, getAllFriends, getAllUsers, getFriendById } from '../modules/FriendManager';
 import UserCard from './UserCard';
-
+import './../Nutshell.css'
 
 export const UserList = ( ) => {
   // The initial state is an empty array
@@ -50,8 +50,9 @@ export const UserList = ( ) => {
   // Finally we use .map() to "loop over" the user array to show a list of user cards
   return (
       <>
+      <h2 className="page__title">Friends</h2>
     <div className="container-cards">
-        <h3>Members</h3>
+        
       {userArray.map(user => {      
         const friendObj = getFriend(user.id)
       return <UserCard key={user.id} user={user} handleFriend={handleFriend}  friendObj={friendObj} handleUnfriend={handleUnfriend}/>})}

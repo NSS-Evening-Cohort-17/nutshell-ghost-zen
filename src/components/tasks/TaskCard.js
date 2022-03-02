@@ -14,16 +14,16 @@ export const TaskCard = ({ task, handleDeleteTask }) => {
         <h4><span className="tasks__title">
           {task.ticket}
         </span></h4>
-        <p>Due on: {task.dueDate}</p>
-        <p>Details: {task.detail}</p>
-        <p>Status: {task.status}</p>
-        <p>Priority Status: {task.priority}</p>
+        <p><strong>Due on:</strong> {task.dueDate}</p>
+        <p><strong>Details:</strong> {task.detail}</p>
+        <p><strong>Status:</strong> {task.status}</p>
+        <p><strong>Priority Status:</strong> {task.priority}</p>
 
 
         <div className="crud__btns">
-            <button className="crud__btn btn" type="button" onClick={() => handleDeleteTask(task.id)} id="delete__btn">delete</button>
+            <button className="crud__btn btn" type="button" onClick={() => handleDeleteTask(task.id)} id="delete__btn">Delete</button>
 
-            <button className="crud__btn btn" id="edit__btn" onClick={() => {navigate(`/tasks/${task.id}/edit`)}}>edit</button>
+            <button className="crud__btn btn" id="edit__btn" onClick={() => {navigate(`/tasks/${task.id}/edit`)}}>Edit</button>
         </div>
 
         <hr></hr>

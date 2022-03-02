@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { EventCard } from './EventCard';
 import { getAllEvents, deleteEvent } from '../modules/EventManager';
 import { useNavigate} from "react-router-dom"
+import "./EventList.css"
 import "./../Nutshell.css"
 
 export const EventList = () => {
@@ -28,7 +29,7 @@ export const EventList = () => {
 
   return (
     <>
-    <h3 className="page__title">Events</h3>
+    <h2 className="page__title">Events</h2>
 
     <section className="section-content">
         <div className="big__btns">
@@ -36,7 +37,7 @@ export const EventList = () => {
         </div>
         </section>
 
-    <div className="evens__card">
+    <div className="events__card">
         {events.map(event =>
          <EventCard
             key={event.id}
