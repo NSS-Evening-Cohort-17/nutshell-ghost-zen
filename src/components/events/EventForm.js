@@ -15,7 +15,7 @@ export const AddEventForm = () => {
         onDate: new Date().toLocaleString(),
         time: "",
         location: "",
-        userId: sessionUserId
+        userId: 3
     });
 
     const navigate = useNavigate();
@@ -39,13 +39,8 @@ export const AddEventForm = () => {
 
     useEffect(() => {
         getAllEvents()
-        .then(event => {
-            setEvent(event)
-            // console.log("events")
-         })
-    })
-
-    
+    }, [])
+   
 
     return (
         <form>

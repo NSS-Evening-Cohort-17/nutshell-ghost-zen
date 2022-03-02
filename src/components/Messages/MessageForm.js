@@ -3,11 +3,12 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import {getAllFriends} from '../modules/FriendManager';
 import {saveMessage} from '../modules/MessageManager';
 import { getAllMessages } from '../modules/MessageManager';
-
+import './MessageForm.css'
 
 export const MessageForm = () => {
     const sessionUser = JSON.parse(window.sessionStorage.getItem("nutshell_user"))
     const sessionUserId = sessionUser.id
+    const navigate = useNavigate()
     const [message, setMessage] = useState({
         id: null,
         fromUserId: sessionUserId,
@@ -44,12 +45,14 @@ export const MessageForm = () => {
     const handleClickSendMessage = (event) => {
         event.preventDefault()
         saveMessage(message)
-        
+        .then(() => 
+        window.alert("Message sent"),
+        navigate("/"))
     }
 
     return (
         <form className="messageForm">
-        <h2 className="messageForm_title">New Message</h2>
+        <h2 className="page__title">New Message</h2>
         <fieldset>
             <div className="form-group">
                 <label htmlFor="recipient">Choose a Recipient </label>
@@ -75,10 +78,12 @@ export const MessageForm = () => {
                 <input type="text" id="message" onChange={handleControlledInputChange} autoFocus className="form-control" placeholder="Message Content" value={message.message} />
             </div>
         </fieldset>
-        <button className="btn btn-primary"
-            onClick={handleClickSendMessage}>
-            Send Message
-      </button>
+        <div className="crud__btns">
+            <button className="submit__btn"
+                onClick={handleClickSendMessage}>
+                Send Message
+        </button>
+        </div>
     </form>
 
     )

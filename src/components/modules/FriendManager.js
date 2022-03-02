@@ -25,8 +25,10 @@ export const getUsersById = (userId) => {
   }
 //return fetch(`${remoteURL}/friends?id=${Id}`, {
   // -- return fetch(`${remoteURL}/friends/${Id}`, {
-  export const deleteFriend = (Id) => {
-    return fetch(`${remoteURL}/friends/${Id}`, {
+ //http://localhost:8088/friends/?CurrentUserId=4&_expand=user
+ //friends?currentUserId=4&userId=3
+  export const deleteFriend = (taco) => {
+    return fetch(`${remoteURL}/friends/${taco}`, {
       method: "DELETE"
     }).then(result => result.json())
   }

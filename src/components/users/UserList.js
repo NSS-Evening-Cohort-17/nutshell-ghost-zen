@@ -1,74 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import { addFriend, deleteFriend, getAllFriends, getAllUsers } from '../modules/FriendManager';
-import FriendCard from './FriendCard';
+import { addFriend, deleteFriend, getAllFriends, getAllUsers, getFriendById } from '../modules/FriendManager';
 import UserCard from './UserCard';
-
+import './../Nutshell.css'
 
 export const UserList = ( ) => {
   // The initial state is an empty array
-  const [userArray, setUsers] = useState([]);
+  const [userArray, setUserArray] = useState([]);
   const [friends, setFriends] = useState([]);
-  const [members, setMembers] = useState([]);
-   const sessionUserId  = JSON.parse(window.sessionStorage.getItem("nutshell_user"))
-   const UserId = sessionUserId.id
+  const [friendIdArray, setFriendIdArray] = useState([]);
+    const sessionUserId  = JSON.parse(window.sessionStorage.getItem("nutshell_user"))
+   const currentUserId = sessionUserId.id
 
-console.log('test', UserId)
-  const getUsers = () => {
+   const getUsers = () => {
     // After the data comes back from the API, we
     return getAllUsers().then(usersFromAPI => {
-      setUsers(usersFromAPI)
+      setUserArray(usersFromAPI)
     });
   };
   const getFriends = () => {
     // After the data comes back from the API, we
-    return getAllFriends(UserId).then(usersFromAPI => {
+    return getAllFriends(currentUserId).then(usersFromAPI => {
         setFriends(usersFromAPI)     });
             
   };
-  const getMembers = () => {
-    // const memberArray = []
-    // After the data comes back from the API, we
-    for (let i = 0; i < friends.length; i++) {
-      const userindex =  userArray.find(user => user.id === friends[i].userId)
-      return console.log('message',userArray[userindex])
-  }
-    //members = friends.map((friend) => users.filter(users.id!=friend.friendId)).join("") 
-  };
+  // setFriendIdArray(friends.map((friendObj) => {return friendObj.userId}))
 
   const handleUnfriend = id => {
-    console.log('delete id',id)
-    deleteFriend(id)
-    .then(() => getFriends())
+    console.log('delete userid id',id)
+    deleteFriend( id)
+    .then(() => getUsers()).then(getFriends)
   };
  
  const handleFriend = id => {
     const newFriend = {
       userId: id,
-      CurrentUserId: UserId
+      currentUserId: currentUserId
     }
     addFriend(newFriend)
-    .then(() => getFriends());
+    .then(() => getUsers()).then(getFriends)
   };
+  const getFriend = (userId) => {
+ return friends.find(friend => friend.userId===userId)
+  }
 
-  useEffect(() => {
-    getFriends();
-    getUsers();  
-   
+  useEffect(() => { 
+        getFriends().then(getUsers);
   }, []);
-  // useEffect(() => {
-  //   getMembers();  
-   
-  // }, []);
-  // Finally we use .map() to "loop over" the animals array to show a list of animal cards
+
+  // Finally we use .map() to "loop over" the user array to show a list of user cards
   return (
       <>
+      <h2 className="page__title">Friends</h2>
     <div className="container-cards">
-        <h3>Members</h3>
-      {userArray.map(user => <UserCard key={user.id} user={user} handleFriend={handleFriend} />)}
-    </div>
-    <div className="container-cards">
-        <h3>Friends</h3>
-      {friends.map(friend => <FriendCard key={friend.id} friends={friend} handleUnfriend={handleUnfriend} />)}
+        
+      {userArray.map(user => {      
+        const friendObj = getFriend(user.id)
+      return <UserCard key={user.id} user={user} handleFriend={handleFriend}  friendObj={friendObj} handleUnfriend={handleUnfriend}/>})}
     </div>
     </>
   );
